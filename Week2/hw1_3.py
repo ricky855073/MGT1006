@@ -1,6 +1,6 @@
 ################################
 # Project: HW1_3               #
-# Date: 20211005               #
+# Date: 20211009               #
 # Author: Ricky Hsien-Ming Liu #
 # ID: R09323056                #
 ################################
@@ -10,12 +10,9 @@
 ########################
 
 # student id
-# id_1 = int(input())
-# id_2 = int(input())
-# id_3 = int(input())
-id_1 = 7
-id_2 = 8
-id_3 = 9
+id_1 = int(input())
+id_2 = int(input())
+id_3 = int(input())
 
 # department id
 dept_1 = int(input())
@@ -158,6 +155,4 @@ else:
         print(id_3)
     else:
         print("-1")
-        
-    
-        
+
