@@ -33,8 +33,6 @@ for i in range(quantity_order):
         else:
             profit += (retail_price - cost) * quantity_order * (1 - prob_list_sum) 
             break
-    if profit > profit_max:
-        profit_max = profit
-
+        
 print(profit)
 print(int(profit))
