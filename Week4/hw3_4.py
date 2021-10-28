@@ -37,9 +37,13 @@ for i in range(feasible_ans):
             weight_sum += utility_weight_list[j][0]
     solution_list.append([pick_i, weight_sum, utility_sum])
 
-best_solution = solution_list[0][0]
-max_weight = solution_list[0][1]
-max_utility = solution_list[0][2]
+# best_solution = solution_list[0][0]
+# max_weight = solution_list[0][1]
+# max_utility = solution_list[0][2]
+
+best_solution = int()
+max_weight = int()
+max_utility = int()
 
 for i in range(len(solution_list)):
     if solution_list[i][1] <= B:
