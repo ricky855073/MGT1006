@@ -28,11 +28,16 @@ def mono_inc(inlist, k=3):
     if counter >= k:
         continue_list.append([counter, len(diff_list)])
 
-    if continue_list != list():
-        print(f'{continue_list[0][1] - continue_list[0][0]}\n{continue_list[0][1]}')
+    return continue_list
+
+
+def result_output(result_list):
+    if result_list != list():
+        print(f'{result_list[0][1] - result_list[0][0]}\n{result_list[0][1]}')
     else:
         print(None)
 
+# RETURN!
 
 def main():
     input_1 = input()
@@ -40,6 +45,7 @@ def main():
     test_positive = list(map(int, test_positive))
     k = int(input())  # k value
     mono_inc(test_positive, k)
+    result_output(mono_inc(test_positive, k))
 
 
 if __name__ == '__main__':
