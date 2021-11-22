@@ -6,15 +6,15 @@ Created on Mon Nov 22 11:18:10 2021
 @author: hsienmingliu
 """
 
-# width = int(input())
-# input_type = input().split(",")
+width = int(input())
+input_type = input().split(",")
 
-width = 6
-input_type = ['s', 'f', 'f', 's']
+# width = 6
+# input_type = ['s', 'f', 'f', 's']
 
 
 def string_process(substring):
-    if len(substring) >= width:
+    if len(substring) > width:
         return substring[:width - 1] + "~"
     else:
         return substring
@@ -22,7 +22,7 @@ def string_process(substring):
 
 def float_process(substring):
     need_fix = f'{float(substring):.2f}'
-    if len(need_fix) >= width:
+    if len(need_fix) > width:
         return need_fix[:width - 1] + "~"
     else:
         return need_fix
@@ -54,9 +54,10 @@ def preprocess():
 
 def result_output():
     fixed_list = preprocess()
-    for i in fixed_list:
-        print(i)
-
+    for sublist in fixed_list:
+        for j in range(len(input_type) - 1):
+            print(f'{sublist[j] : >{width}}', end=" ")
+        print(f'{sublist[-1] : >{width}}')
 
 
 def main():
