@@ -48,6 +48,7 @@ def string_matching(condition):
         for target in target_list:
             if condition in str(target):
                 valid_list.append(i)
+                break
 
     if valid_list != []:
         valid_list.sort(key = lambda i: (i[5], -int(i[4]), i[1]))
