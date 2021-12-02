@@ -7,10 +7,10 @@ Created on Mon Nov 29 22:06:06 2021
 """
 from datetime import datetime
 
-# filepath = "/Users/hsienmingliu/Desktop/NTU/MGT1006/Week8/small1.csv"
-# condition = str(1)
-filepath = input()
-condition = input()
+filepath = "/Users/hsienmingliu/Desktop/NTU/MGT1006/Week8/bgm_h1k.csv"
+condition = str(9999999)
+# filepath = input()
+# condition = input()
 
 sp2 = "　"  # 全形空白
 
@@ -50,17 +50,16 @@ def string_matching(condition):
                 valid_list.append(i)
 
     if valid_list != []:
-        valid_list.sort(key = lambda i: i[5])
+        valid_list.sort(key = lambda i: (i[5], -int(i[4]), i[1]))
         return True
     else:
         return False
 
 
 
-
 def output_result(string_list):
     if string_matching(condition) == True:
-        for slist in string_list[0:21]:
+        for slist in string_list[0:20]:
             date_time = datetime.strptime(str(int(slist[5]) + 19110000), "%Y%m%d").strftime("%Y-%m-%d")
             revenue = f'{int(slist[4]):,}'
             if len(slist[2]) != 0:
@@ -68,7 +67,7 @@ def output_result(string_list):
                 print(f'{slist[1]}({slist[2]})  ', end=" ")
                 print(date_time.ljust(20), end=" ")
                 print(str(revenue).ljust(20), end=" ")
-                print(slist[0].replace('"','').ljust(20), end=" ")
+                print(slist[0].replace('"','').ljust(20))
             else:
                 print(slist[3].replace('"','').ljust(20, sp2), end=" ")
                 print(slist[1].ljust(20), end=" ")
@@ -76,7 +75,7 @@ def output_result(string_list):
                 print(str(revenue).ljust(20), end=" ")
                 print(slist[0].replace('"','').ljust(20))
     elif string_matching(condition) == False:
-        print("No_DATA_FOUND")
+        print("NO_DATA_FOUND")
 
 
 
