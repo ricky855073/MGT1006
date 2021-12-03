@@ -5,13 +5,9 @@ Created on Thu Dec  2 16:36:55 2021
 
 @author: hsienmingliu
 """
-import math
 
-filepath = "/Users/hsienmingliu/Desktop/NTU/MGT1006/Week8/bgm_h1k.csv"
-# filepath = input()
-# condition = input()
+filepath = input()
 
-sp2 = "　"  # 全形空白
 
 process_list = list()
 string_list = list()
@@ -49,7 +45,7 @@ def median(lst):
     quotient, remainder = divmod(len(lst), 2)
     if remainder:
         return sorted(lst)[quotient]
-    return int(sum(sorted(lst)[quotient - 1:quotient + 1]) / 2.)
+    return int(round(sum(sorted(lst)[quotient - 1:quotient + 1]) / 2.))
 
 
 def industry():
@@ -66,16 +62,16 @@ def industry():
         counter = 0
         money_list = list()
         for row in process_list[1:]:
-            if item == row[8]:
+            if item == row[8] and industry_dict[item] == row[9]:
                 counter += 1
                 money_list.append(int(row[4]))
-            if item == row[10]:
+            if item == row[10] and industry_dict[item] == row[11]:
                 counter += 1
                 money_list.append(int(row[4]))
-            if item == row[12]:
+            if item == row[12] and industry_dict[item] == row[13]:
                 counter += 1
                 money_list.append(int(row[4]))
-            if item == row[14]:
+            if item == row[14] and industry_dict[item] == row[15]:
                 counter += 1
                 money_list.append(int(row[4]))
         result_list.append([item, median(money_list), counter])
@@ -83,16 +79,13 @@ def industry():
 
 
 def result_output(result_list):
-    for row in result_list[0:20]:
-        print(row)
-
-
-
-# for row in process_list:
-#     if row[8]
-
-
-
+    for row in result_list[0:10]:
+        code = row[0]
+        print(f'{code} ', end="")
+        print(f'({industry_dict[code]}): ', end="")
+        print(f'${row[1]}; ', end="")
+        print(f'N={row[2]}', end="")
+        print()
 
 
 def main():
