@@ -55,7 +55,10 @@ def industry():
         industry_dict[row[10]] = row[11]
         industry_dict[row[12]] = row[13]
         industry_dict[row[14]] = row[15]
-    industry_dict.pop('')
+    try:
+        industry_dict.pop('')
+    except KeyError:
+        pass
 
     dict_keys_list = list(industry_dict.keys())
     for item in dict_keys_list:
